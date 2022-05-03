@@ -8,5 +8,5 @@ Get
 
 ```text
 # Get the default domain password policy from a specified domain
-Get-ADDefaultDomainPasswordPolicy -Identity fabrikam.com
+Get-ADDefaultDomainPasswordPolicy -Identity corp.local.com
 ```
