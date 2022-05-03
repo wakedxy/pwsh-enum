@@ -3,7 +3,7 @@ Powershell commands for enumeration in Windows Active Directory environment.
 
 ```text
 # Get Users in a specific Domain 
-Get 
+Get-ADUser -server Domaincontroller -Filter * -Properties *
 ```
 
 ```text
