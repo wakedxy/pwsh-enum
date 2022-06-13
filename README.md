@@ -6,7 +6,7 @@ So here is a list of powershell commands for enumeration in Windows Active Direc
 
 IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it.
 
-Enumerate Domain Users
+- Enumerate Domain Users
 ```text
 #Get Users in a specific Domain 
 Get-ADUser -server Domaincontroller -Filter * -Properties *
@@ -16,35 +16,29 @@ Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
 ```
 
-Enumerate Domain Computers
+- Enumerate Domain Computers
 ```text
 #Get Computers in a specific Domain 
 Get-ADComputer -server Domaincontroller -Filter * -Properties *
 #Get all active computer list in domain
 Get-ADComputer -Filter {enabled -eq $true} -properties *
 ```
-Enum Domain Trust:
+- Enumerate Domain Trust:
 ```text
 #Get the list of all trusts within the current domain
 Get-ADTrust -Filter *               
 #Get the list of all trusts within the indicated domain
 Get-ADTrust -Identity us.domain.corporation.local   
 ```
-
-Get the default domain password policy from a specified domain
+- Divers Objets Enumation:
 ```text
+#Get the default domain password policy from a specified domain
 Get-ADDefaultDomainPasswordPolicy -Identity corp.local.com
-```
-Get all groups that contain the word "admin" in the group name
-```text
+#Get all groups that contain the word "admin" in the group name
 Get-ADGroup -Filter 'Name -like "*admin*"' | select Name     
-```
-Get all members of the "Domain Admins" group
-```text
+#Get all members of the "Domain Admins" group
 Get-ADGroupMember -Identity "Domain Admins" -Recursive       
-```
-Get group membership for a specific user
-```text
+#Get group membership for a specific user
 Get-ADPrincipalGroupMembership -Identity login001     
 ```
 
