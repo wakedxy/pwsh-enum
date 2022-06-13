@@ -32,7 +32,7 @@ Get-ADComputer -server Domaincontroller -Filter * -Properties *
 ```
 Get all active computer list in domain
 ```text
-# Get-ADComputer -Filter {enabled -eq $true} -properties *
+Get-ADComputer -Filter {enabled -eq $true} -properties *
 ```
 Get the default domain password policy from a specified domain
 ```text
@@ -49,7 +49,6 @@ Get-ADGroupMember -Identity "Domain Admins" -Recursive
 Get group membership for a specific user
 ```text
 Get-ADPrincipalGroupMembership -Identity login001     
-
 ```
 
 ![My Image](commands.png)
