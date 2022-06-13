@@ -43,3 +43,5 @@ Get-ADPrincipalGroupMembership -Identity login001
 
 ```
 
+![My Image](commands.png)
+
