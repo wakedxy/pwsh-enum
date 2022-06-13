@@ -5,19 +5,24 @@ Using powershell instead of external tools will help us to avoid triggering aler
 So here is a list of powershell commands for enumeration in Windows Active Directory environment. 
 
 IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it.
-
-Get Users in a specific Domain 
+Enumerate Domain Users
 ```text
+#Get Users in a specific Domain 
 Get-ADUser -server Domaincontroller -Filter * -Properties *
-```
-Get Users that can receive null password
-```text
+#Get Users that can receive null password
 Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
-```
-Get user's accounts that do not Require Kerberos Preauthentication 
-```text
+#Get user's accounts that do not Require Kerberos Preauthentication 
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
 ```
+
+Enumerate Domain Computers
+```text
+#Get Computers in a specific Domain 
+Get-ADComputer -server Domaincontroller -Filter * -Properties *
+#Get all active computer list in domain
+Get-ADComputer -Filter {enabled -eq $true} -properties *
+```
+
 Get the list of all trusts within the current domain
 ```text
 Get-ADTrust -Filter *               
@@ -26,14 +31,7 @@ Get the list of all trusts within the indicated domain
 ```text
 Get-ADTrust -Identity us.domain.corporation.local   
 ```
-Get Computers in a specific Domain 
-```text
-Get-ADComputer -server Domaincontroller -Filter * -Properties *
-```
-Get all active computer list in domain
-```text
-Get-ADComputer -Filter {enabled -eq $true} -properties *
-```
+
 Get the default domain password policy from a specified domain
 ```text
 Get-ADDefaultDomainPasswordPolicy -Identity corp.local.com
