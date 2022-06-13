@@ -23,13 +23,11 @@ Get-ADComputer -server Domaincontroller -Filter * -Properties *
 #Get all active computer list in domain
 Get-ADComputer -Filter {enabled -eq $true} -properties *
 ```
-
-Get the list of all trusts within the current domain
+Enum Domain Trust:
 ```text
+#Get the list of all trusts within the current domain
 Get-ADTrust -Filter *               
-```
-Get the list of all trusts within the indicated domain
-```text
+#Get the list of all trusts within the indicated domain
 Get-ADTrust -Identity us.domain.corporation.local   
 ```
 
