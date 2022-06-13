@@ -5,6 +5,7 @@ Using powershell instead of external tools will help us to avoid triggering aler
 So here is a list of powershell commands for enumeration in Windows Active Directory environment. 
 
 IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it.
+
 Enumerate Domain Users
 ```text
 #Get Users in a specific Domain 
