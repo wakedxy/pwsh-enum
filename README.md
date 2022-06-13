@@ -14,7 +14,7 @@ Get Users that can receive null password
 ```text
 Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
 ```
-Get all users that do not Require Preauthentication
+Get user's accounts that do not Require Kerberos Preauthentication 
 ```text
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
 ```
