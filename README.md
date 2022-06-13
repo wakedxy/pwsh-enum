@@ -30,7 +30,7 @@ Get-ADTrust -Filter *
 #Get the list of all trusts within the indicated domain
 Get-ADTrust -Identity us.domain.corporation.local   
 ```
-- Divers Objets Enumation:
+- Other Objects Enumation:
 ```text
 #Get the default domain password policy from a specified domain
 Get-ADDefaultDomainPasswordPolicy -Identity corp.local.com
