@@ -6,6 +6,8 @@ So here is a list of powershell commands for enumeration in Windows Active Direc
 
 IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it first before using them.
 
+AD module link : https://github.com/samratashok/ADModule/blob/master/Microsoft.ActiveDirectory.Management.dll
+
 - Enumerate Domain Users
 ```text
 #Get Users in a specific Domain 
