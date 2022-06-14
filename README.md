@@ -24,7 +24,6 @@ Get-ADComputer -server Domaincontroller -Filter * -Properties *
 Get-ADComputer -Filter {enabled -eq $true} -properties *
 #Get computers with outdated OS
 Get-ADComputer -Filter 'operatingsystem -like "*Windows 7*" -and enabled -eq "true"' -Properties *
-
 ```
 - Enumerate Domain Trust:
 ```text
@@ -32,6 +31,11 @@ Get-ADComputer -Filter 'operatingsystem -like "*Windows 7*" -and enabled -eq "tr
 Get-ADTrust -Filter *               
 #Get the list of all trusts within the indicated domain
 Get-ADTrust -Identity us.domain.corporation.local   
+```
+- Enumerate File Shares:
+```text
+#Retrieves the SMB shares on the computer
+Get-SmbShare
 ```
 - Other Objects Enumation:
 ```text
