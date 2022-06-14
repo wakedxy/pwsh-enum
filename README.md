@@ -4,7 +4,7 @@ Using powershell instead of external tools will help us to avoid triggering aler
 
 So here is a list of powershell commands for enumeration in Windows Active Directory environment. 
 
-IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it.
+IMPORTANT : most of those commands are integrated to Active Directory module , you need to import it first before using them.
 
 - Enumerate Domain Users
 ```text
@@ -22,6 +22,9 @@ Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcon
 Get-ADComputer -server Domaincontroller -Filter * -Properties *
 #Get all active computer list in domain
 Get-ADComputer -Filter {enabled -eq $true} -properties *
+#Get computers with outdated OS
+Get-ADComputer -Filter 'operatingsystem -like "*Windows 7*" -and enabled -eq "true"' -Properties *
+
 ```
 - Enumerate Domain Trust:
 ```text
