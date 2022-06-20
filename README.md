@@ -16,6 +16,8 @@ Get-ADUser -server Domaincontroller -Filter * -Properties *
 Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
 #Get user's accounts that do not Require Kerberos Preauthentication 
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
+#Enumerate user accounts with serverPrincipalName attribute set
+Get-adobject -filter {serviceprincipalname -like "*"}  | Where-Object {$_.distinguishedname -like "*CN=Users*" -and $_.name -ne "krbtgt"}
 ```
 
 - Enumerate Domain Computers
@@ -39,8 +41,10 @@ Get-ADTrust -Identity us.domain.corporation.local
 #Retrieves the SMB shares on the computer
 Get-SmbShare
 ```
-- Other Objects Enumation:
+- Other Objects Enumeration:
 ```text
+#Shows the tickets in memory
+klist
 #Get the default domain password policy from a specified domain
 Get-ADDefaultDomainPasswordPolicy -Identity corp.local.com
 #Get all groups that contain the word "admin" in the group name
