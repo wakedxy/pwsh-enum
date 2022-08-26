@@ -1,6 +1,6 @@
 # Powershell Active Directory Enumeration
 Enumeration is the most important step when we want to perform a pentest or we want to audit our AD system.
-Using powershell instead of external tools will help us to avoid triggering alerts on defense systems (AV,SIEM etc). As we say communicate with a Dog in his language and he won't bite you (okay nobody said that but you got the idea).
+Using powershell instead of external tools will help us to avoid triggering alerts on defense systems (AV,SIEM etc). As we say communicate with a Dog in his language and he won't bite you (okay nobody said that but you've got the idea).
 
 So here is a list of powershell commands for enumeration in Windows Active Directory environment. 
 
