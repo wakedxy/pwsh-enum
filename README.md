@@ -12,7 +12,7 @@ AD module link : https://github.com/samratashok/ADModule/blob/master/Microsoft.A
 ```text
 #Get Users in a specific Domain 
 Get-ADUser -server Domaincontroller -Filter * -Properties *
-#Get Users Who Are Allowed To Have No Password
+#Get Users wit PasswordNotRequired set to true
 Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
 #Get user's accounts that do not Require Kerberos Preauthentication 
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
@@ -26,7 +26,7 @@ Get-adobject -filter {serviceprincipalname -like "*"}  | Where-Object {$_.distin
 Get-ADComputer -server Domaincontroller -Filter * -Properties *
 #Get all active computer list in domain
 Get-ADComputer -Filter {enabled -eq $true} -properties *
-#Get computers with outdated OS
+#Get computers with outdated OS (in this exemple we are looking for computers on Windows 7)
 Get-ADComputer -Filter 'operatingsystem -like "*Windows 7*" -and enabled -eq "true"' -Properties *
 ```
 - Enumerate Domain Trust:
