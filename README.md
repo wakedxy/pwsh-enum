@@ -14,8 +14,6 @@ AD module link : https://github.com/samratashok/ADModule/blob/master/Microsoft.A
 Get-ADUser -server Domaincontroller -Filter * -Properties *
 #Get Users with PasswordNotRequired set to true
 Get-ADUser -server Domaincontroller -Filter {PasswordNotRequired -eq $true}
-#Get users with ServicePrincipalNames set
-Get-ADUser -server Domaincontroller -filter {ServicePrincipalNames -ne "{}"}
 #Get user's accounts that do not Require Kerberos Preauthentication 
 Get-ADUser -Filter 'useraccountcontrol -band 4194304' -Properties useraccountcontrol | Format-Table name
 #Enumerate user accounts with serverPrincipalName attribute set
